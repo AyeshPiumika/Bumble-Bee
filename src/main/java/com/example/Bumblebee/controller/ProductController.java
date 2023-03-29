@@ -21,12 +21,12 @@ public class ProductController {
 	@Autowired
     private ProductService service;
 	
-	@GetMapping("/")
+	@GetMapping("/manageproducts")
     public String viewHomePage(Model model) {
         List<Product> listproduct = service.listAll();
         model.addAttribute("listproduct", listproduct);
         System.out.print("Get / ");
-        return "index";
+        return "manageproducts";
     }
  
     @GetMapping("/new")
@@ -38,7 +38,7 @@ public class ProductController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("product") Product prd) {
         service.save(prd);
-        return "redirect:/";
+        return "redirect:/manageproducts";
     }
  
     @RequestMapping("/Update/{pid}")
@@ -65,7 +65,7 @@ public class ProductController {
     @RequestMapping("/Delete/{pid}")
     public String delete(@PathVariable(name = "pid") long pid) {
         service.delete(pid);
-        return "redirect:/";
+        return "redirect:/manageproducts";
     }
 
 }

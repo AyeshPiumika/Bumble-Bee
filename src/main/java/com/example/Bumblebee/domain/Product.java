@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
 
 @Entity
+//@Table(name="product")
 public class Product {
 	
 	@Id
@@ -23,11 +25,11 @@ public class Product {
 	private String pbrand;
 	
 	public Product() {
-		super();
+		
 	}
 
 	public Product(Long pid, String pname, String pdescription, String pprice, String pcategory, String pbrand) {
-		super();
+		
 		this.pid = pid;
 		this.pname = pname;
 		this.pdescription = pdescription;
